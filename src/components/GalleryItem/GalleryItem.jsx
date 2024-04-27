@@ -9,7 +9,7 @@ function GalleryItem({galleryItem, fetchGallery}) {
         if (!likes) {
             return "No people love this :(";
         } else if (likes === 1) {
-            return "One person loves this!";
+            return "1 person loves this!";
         } else {
             return likes + "people love this!";
         }
@@ -51,11 +51,13 @@ function GalleryItem({galleryItem, fetchGallery}) {
             <>
                 <h2>{galleryItem.title}</h2>
                     <div id="picture-container" 
+                         data-testid="toggle"
                          onClick={(e) => togglePictureDescription(e)} 
                          className="{ showPicture ? 'show-picture' : ''}">
                          {showPicture ? <img src={galleryItem.url}/> : <p>{galleryItem.description}</p>}
                     </div>
                 <button id="love-it"
+                        data-testid="like"
                         onClick={() => {handleLoveItClick(galleryItem.id)}}>love it!</button>
                 <figcaption>{getLikeMessage(galleryItem.likes)}</figcaption>
             </>

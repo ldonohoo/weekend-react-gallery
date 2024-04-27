@@ -29,8 +29,10 @@ const fetchGallery = () => {
         <header>
           <h1>React Gallery</h1>
         </header>
-        <section>
-          <GalleryList gallery={gallery}
+        <section className="gallery-section"
+                 data-testid="galleryList">
+          <GalleryList
+                       gallery={gallery}
                        fetchGallery={fetchGallery}/>
         </section>
       </div>
