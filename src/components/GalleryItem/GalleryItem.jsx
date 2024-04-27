@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import './GalleryItem.css';
+import Button from '@mui/material/Button';
 
 /**
  * Component GalleryItem, responsible for rendering a single item
@@ -60,6 +61,21 @@ function GalleryItem({galleryItem, fetchGallery}) {
         })
     }
 
+    const handleDeleteItem = (id) => {
+        axios({
+            method: 'DELETE',
+            url: `api/gallery/${id}`
+        })
+        .then(response => {
+            console.log('Successful delete of a gallery item!');
+            fetchGallery();
+        })
+        .catch(error => {
+            console.log('Error deleting a gallery item!', error);
+        })
+    }
+    
+
     /**
      * Component render return (what the component GalleryItem renders)
      */
@@ -72,9 +88,13 @@ function GalleryItem({galleryItem, fetchGallery}) {
                          className="{ showPicture ? 'show-picture' : ''}">
                          {showPicture ? <img src={galleryItem.url}/> : <p>{galleryItem.description}</p>}
                     </div>
-                <button id="love-it"
+                <Button id="love-it"
                         data-testid="like"
-                        onClick={() => {handleLoveItClick(galleryItem.id)}}>love it!</button>
+                        variant="contained"
+                        onClick={() => {handleLoveItClick(galleryItem.id)}}>love it!</Button>
+                <Button id="delete-item"
+                        variant="contained"
+                        onClick={() => {handleDeleteItem(galleryItem.id)}}>delete</Button>
                 <figcaption>{getLikeMessage(galleryItem.likes)}</figcaption>
             </>
     )

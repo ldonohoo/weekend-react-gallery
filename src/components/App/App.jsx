@@ -1,6 +1,10 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import GalleryList from '../GalleryList/GalleryList.jsx'
+import GalleryList from '../GalleryList/GalleryList.jsx';
+import AddModal from '../AddModal/AddModal.jsx';
+
+// import { Modal, Button, Box, Typography } from '@mui/material';
+
 
 
 /* Component App, responsible for:
@@ -17,6 +21,7 @@ function App() {
  */
 useEffect(() => {
   fetchGallery();
+  console.log('initial fetch!');
 }, []);
 
 // state variable to keep track of the entire gallery, which is 
@@ -41,14 +46,18 @@ const fetchGallery = () => {
   })
 }
 
+
     /**
      * Component render return (what the component App renders)
      */
     return (
       <div>
         <header>
-          <h1>React Gallery</h1>
+          <h1>Photo Gallery<br/><span>with React</span></h1>
         </header>
+        {/* This is the modal to add a gallery item */}
+        <AddModal fetchGallery={fetchGallery}/>
+        {/* Section for the gallery to be displayed */}
         <section className="gallery-section"
                  data-testid="galleryList">
           <GalleryList

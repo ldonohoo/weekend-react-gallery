@@ -8,8 +8,9 @@
   --main-color: rgb(117, 211, 255);
   --contrast-color: rgb(255, 208, 119);
   --background-color: black;
-  --line-color: white;
+  --line-color: rgb(128, 128, 128);
   --font-color: white;
+  --mui-blue: rgb(25, 118, 210);
 }
 
 body {
@@ -19,6 +20,19 @@ body {
   color: var(--font-color);
   background-color: var(--background-color);
   text-align: center;
+}
+
+header {
+  font-size: x-large;
+  font-weight: 100;
+  background-color: var(--mui-blue);
+  border-bottom: var(--line-thickness) solid var(--line-color);
+  margin-bottom: var(--padding-std);
+}
+
+header > h1 > span {
+  font-size: 2rem;
+  font-style: italic;
 }
 
 
