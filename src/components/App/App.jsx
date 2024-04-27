@@ -4,6 +4,10 @@ import GalleryList from '../GalleryList/GalleryList.jsx'
 
 function App() {
 
+useEffect(() => {
+  fetchGallery();
+}, []);
+
 let [gallery, setGallery] = useState([]);
 
 const fetchGallery = () => {
@@ -12,8 +16,8 @@ const fetchGallery = () => {
     url: '/api/gallery'
   })
   .then(response => {
-    setGallery(req.body);
-    console.log('Successful GET of all gallery data:', req.body);
+    console.log('Successful GET of all gallery data:', response.body);
+    setGallery(response.data);
   })
   .catch(error => {
     console.log('Error in GET of all gallery data: ', error);

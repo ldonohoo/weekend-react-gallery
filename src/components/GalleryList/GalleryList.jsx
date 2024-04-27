@@ -10,9 +10,10 @@ function GalleryList({gallery, fetchGallery}) {
             {gallery.map(galleryItem => {
                 console.log(galleryItem.url, galleryItem.title);
                 return ( 
-                    <article key={galleryItem.key}>  
-                        <GalleryItem galleryItem={galleryItem} />
-                    </article>
+                    <figure key={galleryItem.id}>  
+                        <GalleryItem galleryItem={galleryItem}
+                                     fetchGallery={fetchGallery} />
+                    </figure>
                 )
             })}
         </section>
