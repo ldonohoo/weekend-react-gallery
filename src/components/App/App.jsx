@@ -2,14 +2,31 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx'
 
+
+/* Component App, responsible for:
+/*      --organizing the main App page
+/*      --calling/mounting the GalleryList component
+/*      --creating the gallery state variable to store the gallery data
+/*         and fetching the gallery data initially
+*/
 function App() {
 
+/**
+ * Use useEffect hook to call fetchGallery once 
+ *    upon mount of component <App />
+ */
 useEffect(() => {
   fetchGallery();
 }, []);
 
+// state variable to keep track of the entire gallery, which is 
+//    an array of objects fetched from the database
 let [gallery, setGallery] = useState([]);
 
+/**
+ * Fetches the gallery data, an array of objects, from the database
+ *    using axios to make an HTTP request to the server
+ */
 const fetchGallery = () => {
   axios({
     method: 'GET',
@@ -24,6 +41,9 @@ const fetchGallery = () => {
   })
 }
 
+    /**
+     * Component render return (what the component App renders)
+     */
     return (
       <div>
         <header>

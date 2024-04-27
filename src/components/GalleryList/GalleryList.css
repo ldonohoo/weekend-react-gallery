@@ -1,0 +1,5 @@
+.gallery-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-std);
+}
