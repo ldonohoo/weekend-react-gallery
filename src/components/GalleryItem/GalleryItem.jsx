@@ -74,7 +74,7 @@ function GalleryItem({galleryItem, fetchGallery}) {
             console.log('Error deleting a gallery item!', error);
         })
     }
-    
+
 
     /**
      * Component render return (what the component GalleryItem renders)
