@@ -61,6 +61,11 @@ function GalleryItem({galleryItem, fetchGallery}) {
         })
     }
 
+    /**
+     * Handles a delete of one item from the gallery,
+     *      -uses axios to update the database to remove the item
+     *      -re-fetches the gallery
+     */
     const handleDeleteItem = (id) => {
         axios({
             method: 'DELETE',

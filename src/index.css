@@ -1,4 +1,4 @@
-
+/*  Base css and default color and property definitions */
 
 :root {
   --line-thickness: 0.1rem;
@@ -6,9 +6,10 @@
   --padding-std: .3rem;
 
   --main-color: rgb(117, 211, 255);
-  --contrast-color: rgb(255, 208, 119);
+  --contrast-color: #ffd077;
   --background-color: black;
-  --line-color: rgb(128, 128, 128);
+  --background-color2: #373737;
+  --line-color: #808080;
   --font-color: white;
   --mui-blue: rgb(25, 118, 210);
 }
