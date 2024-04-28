@@ -1,11 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList.jsx';
-import AddModal from '../AddModal/AddModal.jsx';
-
-// import { Modal, Button, Box, Typography } from '@mui/material';
-
-
+import AddGalleryItemModal from '../AddGalleryItemModal/AddGalleryItemModal.jsx';
 
 /* Component App, responsible for:
 /*      --organizing the main App page
@@ -38,7 +34,7 @@ const fetchGallery = () => {
     url: '/api/gallery'
   })
   .then(response => {
-    console.log('Successful GET of all gallery data:', response.body);
+    console.log('Successful GET of all gallery data:', response.data);
     setGallery(response.data);
   })
   .catch(error => {
@@ -56,7 +52,7 @@ const fetchGallery = () => {
           <h1>Photo Gallery<br/><span>with React</span></h1>
         </header>
         {/* This is the modal to add a gallery item */}
-        <AddModal fetchGallery={fetchGallery}/>
+        <AddGalleryItemModal fetchGallery={fetchGallery}/>
         {/* Section for the gallery to be displayed */}
         <section className="gallery-section"
                  data-testid="galleryList">
